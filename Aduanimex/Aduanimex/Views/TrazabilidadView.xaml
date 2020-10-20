@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"
+             x:Class="Aduanimex.Views.TrazabilidadView"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource BacgroundColorPages}"
+             Title="RESULTADO TRAZABILIDAD">
+    <ContentPage.Content>
+        <ScrollView BindingContext="{Binding TrazaView}">
+            <StackLayout 
+                Padding="20,10">
+                <Image Source="ADXAzul.png"
+                   WidthRequest="350"
+                   VerticalOptions="Center"></Image>
+                <!--<ListView 
+                      SeparatorColor="Black"
+                      ItemsSource="{Binding Trazabilidades}"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0"
+                                           Grid.Row="1"
+                                       Text="NroDo :"
+                                       TextColor="Black">
+                                    </Label>
+                                    <Label Grid.Column="1"
+                                       HeightRequest="50"
+                                       Text="{Binding NroDo}">
+                                    </Label>
+                                    <Label Grid.Column="0"
+                                       Text="Razón Social :"
+                                       Grid.Row="2"
+                                       TextColor="Black">
+                                    </Label>
+                                    <Label Grid.Column="1"
+                                           Grid.Row="2"
+                                       HeightRequest="50"
+                                       Text="{Binding RazonSocial}">
+                                    </Label>
+                                    <Label Grid.Column="0"
+                                           Grid.Row="3"
+                                       Text="Situación :"
+                                       TextColor="Black">
+                                    </Label>
+                                    <Label Grid.Column="1"
+                                           Grid.Row="3"
+                                       HeightRequest="50"
+                                       Text="{Binding Situacion}">
+                                    </Label>
+                                    <Label Grid.Column="0"
+                                           Grid.Row="4"
+                                       Text="Observaciones :"
+                                       TextColor="Black">
+                                    </Label>
+                                    <Label Grid.Column="1"
+                                           Grid.Row="4"
+                                       HeightRequest="50"
+                                       Text="{Binding Observaciones}">
+                                    </Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+                <ScrollView Orientation="Horizontal">
+                    <ScrollView Orientation="Vertical">
+                        <StackLayout>
+                            <dg:DataGrid ItemsSource="{Binding Trazabilidades}"
+                             ColumnSpacing="10"
+                             RowHeight="100" 
+                             Padding="20,10"
+                             HeaderBackground="Orange"
+                             SelectionEnabled="False"
+                             BorderColor="Black">
+                                <dg:DataGrid.Columns>
+                                    <dg:DataGridColumn Title="Razón Social" PropertyName="RazonSocial" Width="150" />
+                                    <dg:DataGridColumn Title="NroDo" PropertyName="NroDo" Width="150"/>
+                                    <dg:DataGridColumn Title="Situación" PropertyName="Situacion" Width="350"/>
+                                    <dg:DataGridColumn Title="Observaciones" PropertyName="Observaciones" Width="150"/>
+                                    <dg:DataGridColumn Title="Estado" PropertyName="Estado" Width="150"/>
+                                    <dg:DataGridColumn Title="Fecha" PropertyName="Fecha" Width="150"/>
+                                </dg:DataGrid.Columns>
+                                <dg:DataGrid.RowsBackgroundColorPalette>
+                                    <dg:PaletteCollection>
+                                        <Color>#F2F2F2</Color>
+                                        <Color>#FFFFFF</Color>
+                                    </dg:PaletteCollection>
+                                </dg:DataGrid.RowsBackgroundColorPalette>
+                            </dg:DataGrid>
+                        </StackLayout>
+                    </ScrollView>
+                </ScrollView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

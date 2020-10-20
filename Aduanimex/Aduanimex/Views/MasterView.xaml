@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Aduanimex.Views"
+             BackgroundColor="White"
+             x:Class="Aduanimex.Views.MasterView">
+    <MasterDetailPage.Master>
+        <pages:MenuView/>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <NavigationPage
+            Icon="Salir.png"
+            x:Name="Navigator">
+            <x:Arguments>
+                <pages:BoletinesView/>
+            </x:Arguments>
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+</MasterDetailPage>

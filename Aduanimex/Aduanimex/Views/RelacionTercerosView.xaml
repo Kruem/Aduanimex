@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aduanimex.Views.RelacionTercerosView"
+             xmlns:dg="clr-namespace:Xamarin.Forms.DataGrid;assembly=Xamarin.Forms.DataGrid"             
+             BackgroundColor="{StaticResource BacgroundColorPages}"
+             BindingContext="{Binding Main,Source={StaticResource Locator}}"
+             Title="RELACIÓN TERCEROS">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding RelacionView}" 
+                     Padding="20,10">
+            <Image Source="ADXAzul.png"
+                   WidthRequest="350"
+                   VerticalOptions="Center"></Image>
+            <ScrollView Orientation="Horizontal">
+                <ScrollView Orientation="Vertical">
+                    <StackLayout>
+                        <dg:DataGrid ItemsSource="{Binding GridTerceros}"
+                             ColumnSpacing="15"
+                             RowHeight="100" 
+                             Padding="20,10"
+                             HeaderHeight="30" 
+                             HeaderBackground="Orange"
+                             SelectionEnabled="False"
+                             BorderColor="Black">
+                            <dg:DataGrid.Columns>
+                                <dg:DataGridColumn Title="NIT Tercero" PropertyName="Nit" Width="100" />
+                                <dg:DataGridColumn Title="Proveedor" PropertyName="Proveedor" Width="150"/>
+                                <dg:DataGridColumn Title="Nro Factura" PropertyName="NroFactura" Width="90"/>
+                                <dg:DataGridColumn Title="Concepto" PropertyName="Concepto" Width="150"/>
+                                <dg:DataGridColumn Title="Valor Bruto" PropertyName="ValorBruto" HorizontalContentAlignment="End" Width="90"/>
+                                <dg:DataGridColumn Title="IVA" PropertyName="Iva" HorizontalContentAlignment="End" Width="90"/>
+                                <dg:DataGridColumn Title="Retefuente"  PropertyName="Retefuente" HorizontalContentAlignment="End" Width="90"/>
+                                <dg:DataGridColumn Title="Rete IVA" HorizontalContentAlignment="End" PropertyName="ReteCre" Width="90"/>
+                                <dg:DataGridColumn Title="Rete ICA" PropertyName="ReteICA" HorizontalContentAlignment="End" Width="90"/>
+                                <dg:DataGridColumn Title="Valor Neto" PropertyName="ValorNeto" HorizontalContentAlignment="End" Width="90"/>
+                            </dg:DataGrid.Columns>
+                            <dg:DataGrid.RowsBackgroundColorPalette>
+                                <dg:PaletteCollection>
+                                    <Color>#F2F2F2</Color>
+                                    <Color>#FFFFFF</Color>
+                                </dg:PaletteCollection>
+                            </dg:DataGrid.RowsBackgroundColorPalette>
+                        </dg:DataGrid>
+                    </StackLayout>
+                </ScrollView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

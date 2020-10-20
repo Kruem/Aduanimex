@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource BacgroundColorPages}"
+             Title="LISTA ADJUNTOS"
+             x:Class="Aduanimex.Views.DocumentosDigContent">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout 
+                Padding="20,10"
+                BindingContext="{Binding Adjuntos}">
+                <Image Source="ADXAzul.png"
+                   WidthRequest="350"
+                   VerticalOptions="Center"></Image>
+                <ListView 
+                      SeparatorColor="Black"
+                      ItemsSource="{Binding DocAdjuntos}"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      SelectedItem="{Binding ItemSeleccionado}"  
+                      SeparatorVisibility="Default">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="1"
+                                       Text="{Binding Item}"
+                                       VerticalOptions="Center"
+                                       TextColor="Black"/>
+                                    <Image Grid.Column="0"
+                                       HeightRequest="50"
+                                       Source="{Binding Icon}"
+                                       WidthRequest="30"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

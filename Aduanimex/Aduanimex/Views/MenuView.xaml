@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aduanimex.Views.MenuView"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource BacgroundColorPages}"
+             Title="MENÚ">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20,10" Orientation="Vertical">
+                <Image Source="ADXAzul.png" HorizontalOptions="StartAndExpand"
+                   WidthRequest="250"></Image>
+                <Label Text="{Binding Nombre}"
+                       TextColor="Black"
+                       Font="23"
+                       FontAttributes="Bold"></Label>
+                <Label  
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    Text="MENÚ"
+                    TextColor="Black">
+                </Label>
+                <StackLayout Spacing="5" HorizontalOptions="FillAndExpand">
+                    <ListView 
+                      SeparatorColor="Black"
+                      ItemsSource="{Binding MyMenu}"
+                      HasUnevenRows="True"
+                      SeparatorVisibility="Default">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding NavigateCommand}"/>
+                                        </Grid.GestureRecognizers>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="1"
+                                       Text="{Binding Title}"
+                                       VerticalOptions="Center"
+                                       TextColor="Black">
+                                        </Label>
+                                        <Image Grid.Column="0"
+                                       HeightRequest="50"
+                                       Source="{Binding Icon}"
+                                       WidthRequest="30">
+                                        </Image>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Aduanimex.Views.PreLiquidacionBus"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="{StaticResource BacgroundColorPages}"
+             Title="PRE LIQUIDACIÓN">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout BindingContext="{Binding Preliquidacion}">
+                <StackLayout Padding="20,10">
+                    <Image Source="ADXAzul.png"
+                   WidthRequest="350"
+                   VerticalOptions="Center"></Image>
+                </StackLayout>
+                <StackLayout Padding="20,0,0,0">
+                    <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Ingrese DO:"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       Grid.Row="0"/>
+                    <Entry Text="{Binding NroDo}"
+                       PlaceholderColor="{StaticResource PlaceHolderColors}"
+                       Placeholder="# DO"
+                       TextColor="Black"
+                       Grid.Column="1"
+                       Grid.Row="0"/>
+                </Grid>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Ingrese Pedido:"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       Grid.Row="0"/>
+                    <Entry Text="{Binding Pedido}"
+                       Placeholder="PEDIDO"
+                       TextColor="Black"
+                       Grid.Column="1"
+                       Grid.Row="0"
+                       PlaceholderColor="{StaticResource PlaceHolderColors}"/>
+                </Grid>
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                       Text="Tipo :"
+                       TextColor="Black"
+                       Grid.Column="0"
+                       VerticalOptions="Center"
+                       Grid.Row="0"/>
+                    <Picker 
+                        TextColor="Black"
+                        Grid.Row="0" 
+                        Grid.Column="1"
+                        SelectedItem="{Binding Tipo, Mode=TwoWay}">
+                        <Picker.Items>
+                            <x:String>IMPO</x:String>
+                            <x:String>EXPO</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Grid>
+            </StackLayout>
+            <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                               Color="Orange"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center"/>
+                <Grid Padding="20,10">
+                    <Button Text="Buscar"
+                        Command="{Binding BuscarCommand}"
+                        BackgroundColor="{StaticResource ButtonColor}"
+                        TextColor="{StaticResource TextColorButton}"
+                         BorderRadius="23"
+                        HeightRequest="46"
+                        Margin="70,0"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

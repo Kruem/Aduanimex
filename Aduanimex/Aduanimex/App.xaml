@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:infra="clr-namespace:Aduanimex.Infrastructure"
+             x:Class="Aduanimex.App">
+    <Application.Resources>
+        <ResourceDictionary>
+         
+            <infra:InstanceLocator x:Key="Locator"/>
+         
+            
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#140C66"/>
+                <Setter Property="BarTextColor" Value="White"/>
+            </Style>
+            <Color x:Key="MainColor">#2B1FFF</Color>
+            <Color x:Key="TextColorButton">#FFFFFF</Color>
+            <Color x:Key="BackGroundColor">#000000</Color>
+            <Color x:Key="PlaceHolderColors">#848484</Color>
+            <Color x:Key="PlaceHolderTextColor">#000000</Color>
+            <Color x:Key="ButtonColor">#FF8000</Color>
+            <Color x:Key="BacgroundColorPages">#FFFFFF</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
